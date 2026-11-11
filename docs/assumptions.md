@@ -15,4 +15,6 @@ Every modelling choice that is not a direct observation is tagged **ASSUMED** an
 | A-D9 | No ENTSO-E token | Energy-Charts public net generation instead of Transparency Platform | Key-free design | step 1 |
 | A-D10 | Raw redistribution | Raw API JSON git-ignored; licence gate on non-CC BY zones | CC BY / SMARD terms | step 1 |
 
-Downstream steps will append plant efficiencies, VOM, FOR, BESS parameters, etc., each with an ID.
+Step 2 merit-order parameters (efficiency bands, availabilities, VOM, fuel adders, lignite fuel cost, must-run rule, IPCC 2006 CO₂ factors) are registered as **A-M1…A-M16** in [`epm-merit-order-model/docs/assumptions.md`](https://github.com/DataWithSyed/epm-merit-order-model/blob/main/docs/assumptions.md).
+
+Downstream steps will append FOR, BESS parameters, etc., each with an ID.
