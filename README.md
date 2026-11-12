@@ -63,7 +63,7 @@ flowchart LR
 - [x] **Step 0 — Umbrella** (`eu-power-market-lab`): architecture, methods, assumptions, related work *(this repo)*
 - [x] **Step 1 — Data pipeline** ([`epm-data-pipeline`](https://github.com/DataWithSyed/epm-data-pipeline)): fetch / cache / validate Energy-Charts, Pink Sheet, ECB, DEHSt EUA proxy; hourly panel + monthly drivers; pytest
 - [x] **Step 2 — Merit-order model** ([`epm-merit-order-model`](https://github.com/DataWithSyed/epm-merit-order-model)): stack-based fundamental DE-LU price model vs realised DA; out-of-sample calibration study; pytest
-- [ ] **Step 3 — CO₂ / gas price drivers** (`epm-co2-gas-price-drivers`): regression / ML attribution of DA price to fuels, carbon, residual load
+- [x] **Step 3 — CO₂ / gas price drivers** ([`epm-co2-gas-price-drivers`](https://github.com/DataWithSyed/epm-co2-gas-price-drivers)): regression / ML attribution of DA price to fuels, carbon, residual load, and a test of the H2-2026 stack underpricing; pytest
 - [ ] **Step 4 — Capacity adequacy** (`epm-capacity-adequacy`): residual load, scarcity hours, capacity margins
 - [ ] **Step 5 — Forecast benchmark** (`epm-price-forecast-benchmark`): common backtest harness on the lab panel (links to, does not replace, `de-day-ahead-price-forecasting`)
 - [ ] **Step 6 — BESS value from scenarios** (`epm-bess-value-from-scenarios`): arbitrage / scarcity value under model and forecast scenarios
@@ -75,6 +75,7 @@ flowchart LR
 |---|---|---|---|
 | 1 | [`epm-data-pipeline`](https://github.com/DataWithSyed/epm-data-pipeline) | 2026-08-01 → 2026-10-15 | 1,824 h; DA mean 140.48 €/MWh; 5.15 % negative hours; Sep gas 75.34 €/MWh_th; EUA proxy 76.02 €/t; 11 tests |
 | 2 | [`epm-merit-order-model`](https://github.com/DataWithSyed/epm-merit-order-model) | train 2025, test 2026-01 → 2026-10 (16,056 h) | Uncalibrated stack test MAE 27.06 / RMSE 42.47 / corr 0.84 (beats OLS benchmark 38.61); 2025-static calibrations worse OOS (29.1–29.5); rolling 90-day recalibration MAE **22.07** (−18 %), bias −19.0 → −7.7; stack underprices H2-2026 evenings and over-predicts surplus hours (1,526 vs 497 ≤ 0 €/MWh); 17 tests |
+| 3 | [`epm-co2-gas-price-drivers`](https://github.com/DataWithSyed/epm-co2-gas-price-drivers) | train 2025, test 2026-01 → 2026-10 (16,056 h) | 2025 daily Shapley R² 0.85 is almost all residual load (EUA is flat); 2026 in-sample EUA share ~8–12%. Official Q3 EUA 82.52 vs the flat 76.02 proxy closes only **7.3%** of the Jun–Oct M0 bias (−35.25 → −32.68). A 2025-trained OLS on residual load + monthly fuels beats M0 out of sample (hourly MAE **23.94** vs 27.06, nearly unbiased); gradient boosting and fuels-only OLS did **not** help. H2 residual load and utilisation *fell* while prices rose; surplus-hour share 20.4%. 11 tests |
 
 ## What is different from prior repos
 
