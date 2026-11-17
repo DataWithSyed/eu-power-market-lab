@@ -1,0 +1,531 @@
+{
+  "test_days": 304,
+  "test_cells": 7296,
+  "realised": {
+    "test_2026_01_10": {
+      "mean": 114.01689754660089,
+      "std": 70.01762012830596,
+      "negative_share": 0.0649671052631579
+    },
+    "H1_2026_01_05": {
+      "mean": 96.51753849337747,
+      "std": 55.92605996303816,
+      "negative_share": 0.06788079470198675
+    },
+    "H2_2026_06_10": {
+      "mean": 131.28750680827886,
+      "std": 77.81181043061704,
+      "negative_share": 0.06209150326797386
+    }
+  },
+  "thermal_mustrun_mw_2025_q02": {
+    "lignite": 2470.7,
+    "hard_coal": 251.8,
+    "gas": 1056.9,
+    "oil": 92.1
+  },
+  "ols_drivers_exante_coefs": {
+    "intercept": 57.98358543344367,
+    "rl_mw": 0.003139249260238656,
+    "gas": -1.2158604062018152,
+    "coal": 5.224947346801202,
+    "eua": -1.1229813248167126
+  },
+  "ols_drivers_oracle_coefs": {
+    "intercept": 68.61156155804983,
+    "rl_mw": 0.003129115579647532,
+    "gas": 2.062930868895015,
+    "coal": -12.316624278712212,
+    "eua": -1.2537132997481406e-22
+  },
+  "input_forecast_error": {
+    "test_2026_01_10": {
+      "rl_fc_bias_mw": 504.1145970394737,
+      "rl_fc_mae_mw": 2874.2837102521935
+    },
+    "H1_2026_01_05": {
+      "rl_fc_bias_mw": 542.3875620860928,
+      "rl_fc_mae_mw": 3277.666576986755
+    },
+    "H2_2026_06_10": {
+      "rl_fc_bias_mw": 466.3419321895423,
+      "rl_fc_mae_mw": 2476.1738221677556
+    }
+  },
+  "metrics": {
+    "test_2026_01_10": {
+      "naive_d1": {
+        "track": "ex-ante",
+        "mae": 32.78,
+        "rmse": 50.844,
+        "smape_pct": 47.832,
+        "bias": -0.54,
+        "n_days": 304,
+        "rmae": 0.909
+      },
+      "naive_w1": {
+        "track": "ex-ante",
+        "mae": 42.172,
+        "rmse": 64.203,
+        "smape_pct": 55.404,
+        "bias": -2.462,
+        "n_days": 304,
+        "rmae": 1.169
+      },
+      "naive_lago": {
+        "track": "ex-ante",
+        "mae": 36.072,
+        "rmse": 56.453,
+        "smape_pct": 49.948,
+        "bias": 0.308,
+        "n_days": 304,
+        "rmae": 1.0
+      },
+      "stack_M0_exante": {
+        "track": "ex-ante",
+        "mae": 30.422,
+        "rmse": 44.829,
+        "smape_pct": 55.81,
+        "bias": -21.433,
+        "n_days": 304,
+        "rmae": 0.843
+      },
+      "stack_C3_exante": {
+        "track": "ex-ante",
+        "mae": 22.667,
+        "rmse": 36.069,
+        "smape_pct": 41.391,
+        "bias": -7.234,
+        "n_days": 304,
+        "rmae": 0.628
+      },
+      "ols_drivers_exante": {
+        "track": "ex-ante",
+        "mae": 59.906,
+        "rmse": 80.471,
+        "smape_pct": 81.972,
+        "bias": -55.427,
+        "n_days": 304,
+        "rmae": 1.661
+      },
+      "ols_drivers_rolling": {
+        "track": "ex-ante",
+        "mae": 23.627,
+        "rmse": 35.469,
+        "smape_pct": 37.554,
+        "bias": -12.058,
+        "n_days": 304,
+        "rmae": 0.655
+      },
+      "lear": {
+        "track": "ex-ante",
+        "mae": 17.065,
+        "rmse": 29.504,
+        "smape_pct": 29.422,
+        "bias": -2.365,
+        "n_days": 304,
+        "rmae": 0.473
+      },
+      "lear_nb": {
+        "track": "ex-ante",
+        "mae": 16.485,
+        "rmse": 27.801,
+        "smape_pct": 29.417,
+        "bias": -1.615,
+        "n_days": 304,
+        "rmae": 0.457
+      },
+      "gbm": {
+        "track": "ex-ante",
+        "mae": 16.511,
+        "rmse": 27.442,
+        "smape_pct": 29.845,
+        "bias": -4.316,
+        "n_days": 304,
+        "rmae": 0.458
+      },
+      "gbm_nb": {
+        "track": "ex-ante",
+        "mae": 15.455,
+        "rmse": 25.971,
+        "smape_pct": 28.564,
+        "bias": -3.642,
+        "n_days": 304,
+        "rmae": 0.428
+      },
+      "ens": {
+        "track": "ex-ante",
+        "mae": 15.098,
+        "rmse": 25.776,
+        "smape_pct": 27.939,
+        "bias": -3.34,
+        "n_days": 304,
+        "rmae": 0.419
+      },
+      "ens_nb": {
+        "track": "ex-ante",
+        "mae": 14.25,
+        "rmse": 24.34,
+        "smape_pct": 27.258,
+        "bias": -2.629,
+        "n_days": 304,
+        "rmae": 0.395
+      },
+      "stack_M0_oracle_step2": {
+        "track": "ORACLE",
+        "mae": 27.057,
+        "rmse": 42.467,
+        "smape_pct": 56.503,
+        "bias": -18.959,
+        "n_days": 304,
+        "rmae": 0.75
+      },
+      "stack_C3_oracle_step2": {
+        "track": "ORACLE",
+        "mae": 22.068,
+        "rmse": 36.408,
+        "smape_pct": 43.389,
+        "bias": -7.655,
+        "n_days": 304,
+        "rmae": 0.612
+      },
+      "ols_drivers_oracle": {
+        "track": "ORACLE",
+        "mae": 23.932,
+        "rmse": 36.049,
+        "smape_pct": 37.02,
+        "bias": 1.857,
+        "n_days": 304,
+        "rmae": 0.663
+      },
+      "lear_oracle": {
+        "track": "ORACLE",
+        "mae": 17.556,
+        "rmse": 28.567,
+        "smape_pct": 30.361,
+        "bias": -3.674,
+        "n_days": 304,
+        "rmae": 0.487
+      }
+    },
+    "H1_2026_01_05": {
+      "naive_d1": {
+        "track": "ex-ante",
+        "mae": 28.5,
+        "rmse": 45.25,
+        "smape_pct": 45.188,
+        "bias": -0.017,
+        "n_days": 151,
+        "rmae": 0.945
+      },
+      "naive_w1": {
+        "track": "ex-ante",
+        "mae": 35.533,
+        "rmse": 55.243,
+        "smape_pct": 51.958,
+        "bias": -0.287,
+        "n_days": 151,
+        "rmae": 1.178
+      },
+      "naive_lago": {
+        "track": "ex-ante",
+        "mae": 30.172,
+        "rmse": 47.449,
+        "smape_pct": 46.796,
+        "bias": 1.596,
+        "n_days": 151,
+        "rmae": 1.0
+      },
+      "stack_M0_exante": {
+        "track": "ex-ante",
+        "mae": 20.953,
+        "rmse": 33.52,
+        "smape_pct": 43.546,
+        "bias": -4.885,
+        "n_days": 151,
+        "rmae": 0.694
+      },
+      "stack_C3_exante": {
+        "track": "ex-ante",
+        "mae": 21.275,
+        "rmse": 33.407,
+        "smape_pct": 38.498,
+        "bias": -1.902,
+        "n_days": 151,
+        "rmae": 0.705
+      },
+      "ols_drivers_exante": {
+        "track": "ex-ante",
+        "mae": 24.041,
+        "rmse": 33.635,
+        "smape_pct": 41.636,
+        "bias": -15.046,
+        "n_days": 151,
+        "rmae": 0.797
+      },
+      "ols_drivers_rolling": {
+        "track": "ex-ante",
+        "mae": 19.213,
+        "rmse": 29.483,
+        "smape_pct": 35.615,
+        "bias": -5.448,
+        "n_days": 151,
+        "rmae": 0.637
+      },
+      "lear": {
+        "track": "ex-ante",
+        "mae": 13.929,
+        "rmse": 27.436,
+        "smape_pct": 26.724,
+        "bias": 0.041,
+        "n_days": 151,
+        "rmae": 0.462
+      },
+      "lear_nb": {
+        "track": "ex-ante",
+        "mae": 13.636,
+        "rmse": 25.57,
+        "smape_pct": 26.717,
+        "bias": 0.841,
+        "n_days": 151,
+        "rmae": 0.452
+      },
+      "gbm": {
+        "track": "ex-ante",
+        "mae": 13.712,
+        "rmse": 23.451,
+        "smape_pct": 27.13,
+        "bias": -1.321,
+        "n_days": 151,
+        "rmae": 0.454
+      },
+      "gbm_nb": {
+        "track": "ex-ante",
+        "mae": 13.261,
+        "rmse": 22.692,
+        "smape_pct": 26.529,
+        "bias": -1.201,
+        "n_days": 151,
+        "rmae": 0.44
+      },
+      "ens": {
+        "track": "ex-ante",
+        "mae": 12.647,
+        "rmse": 22.846,
+        "smape_pct": 25.7,
+        "bias": -0.64,
+        "n_days": 151,
+        "rmae": 0.419
+      },
+      "ens_nb": {
+        "track": "ex-ante",
+        "mae": 12.143,
+        "rmse": 21.906,
+        "smape_pct": 25.336,
+        "bias": -0.18,
+        "n_days": 151,
+        "rmae": 0.402
+      },
+      "stack_M0_oracle_step2": {
+        "track": "ORACLE",
+        "mae": 16.044,
+        "rmse": 29.292,
+        "smape_pct": 42.801,
+        "bias": -2.438,
+        "n_days": 151,
+        "rmae": 0.532
+      },
+      "stack_C3_oracle_step2": {
+        "track": "ORACLE",
+        "mae": 16.991,
+        "rmse": 30.263,
+        "smape_pct": 38.331,
+        "bias": -2.618,
+        "n_days": 151,
+        "rmae": 0.563
+      },
+      "ols_drivers_oracle": {
+        "track": "ORACLE",
+        "mae": 21.289,
+        "rmse": 31.785,
+        "smape_pct": 35.771,
+        "bias": 11.981,
+        "n_days": 151,
+        "rmae": 0.706
+      },
+      "lear_oracle": {
+        "track": "ORACLE",
+        "mae": 14.018,
+        "rmse": 24.58,
+        "smape_pct": 27.494,
+        "bias": -1.448,
+        "n_days": 151,
+        "rmae": 0.465
+      }
+    },
+    "H2_2026_06_10": {
+      "naive_d1": {
+        "track": "ex-ante",
+        "mae": 37.005,
+        "rmse": 55.818,
+        "smape_pct": 50.442,
+        "bias": -1.056,
+        "n_days": 153,
+        "rmae": 0.883
+      },
+      "naive_w1": {
+        "track": "ex-ante",
+        "mae": 48.724,
+        "rmse": 71.959,
+        "smape_pct": 58.805,
+        "bias": -4.609,
+        "n_days": 153,
+        "rmae": 1.163
+      },
+      "naive_lago": {
+        "track": "ex-ante",
+        "mae": 41.895,
+        "rmse": 64.112,
+        "smape_pct": 53.06,
+        "bias": -0.963,
+        "n_days": 153,
+        "rmae": 1.0
+      },
+      "stack_M0_exante": {
+        "track": "ex-ante",
+        "mae": 39.767,
+        "rmse": 53.705,
+        "smape_pct": 67.915,
+        "bias": -37.766,
+        "n_days": 153,
+        "rmae": 0.949
+      },
+      "stack_C3_exante": {
+        "track": "ex-ante",
+        "mae": 24.04,
+        "rmse": 38.515,
+        "smape_pct": 44.246,
+        "bias": -12.496,
+        "n_days": 153,
+        "rmae": 0.574
+      },
+      "ols_drivers_exante": {
+        "track": "ex-ante",
+        "mae": 95.303,
+        "rmse": 108.397,
+        "smape_pct": 121.781,
+        "bias": -95.281,
+        "n_days": 153,
+        "rmae": 2.275
+      },
+      "ols_drivers_rolling": {
+        "track": "ex-ante",
+        "mae": 27.983,
+        "rmse": 40.518,
+        "smape_pct": 39.468,
+        "bias": -18.582,
+        "n_days": 153,
+        "rmae": 0.668
+      },
+      "lear": {
+        "track": "ex-ante",
+        "mae": 20.16,
+        "rmse": 31.411,
+        "smape_pct": 32.086,
+        "bias": -4.74,
+        "n_days": 153,
+        "rmae": 0.481
+      },
+      "lear_nb": {
+        "track": "ex-ante",
+        "mae": 19.297,
+        "rmse": 29.839,
+        "smape_pct": 32.082,
+        "bias": -4.038,
+        "n_days": 153,
+        "rmae": 0.461
+      },
+      "gbm": {
+        "track": "ex-ante",
+        "mae": 19.273,
+        "rmse": 30.88,
+        "smape_pct": 32.525,
+        "bias": -7.271,
+        "n_days": 153,
+        "rmae": 0.46
+      },
+      "gbm_nb": {
+        "track": "ex-ante",
+        "mae": 17.621,
+        "rmse": 28.844,
+        "smape_pct": 30.572,
+        "bias": -6.052,
+        "n_days": 153,
+        "rmae": 0.421
+      },
+      "ens": {
+        "track": "ex-ante",
+        "mae": 17.518,
+        "rmse": 28.372,
+        "smape_pct": 30.149,
+        "bias": -6.005,
+        "n_days": 153,
+        "rmae": 0.418
+      },
+      "ens_nb": {
+        "track": "ex-ante",
+        "mae": 16.329,
+        "rmse": 26.525,
+        "smape_pct": 29.155,
+        "bias": -5.045,
+        "n_days": 153,
+        "rmae": 0.39
+      },
+      "stack_M0_oracle_step2": {
+        "track": "ORACLE",
+        "mae": 37.927,
+        "rmse": 52.312,
+        "smape_pct": 70.025,
+        "bias": -35.263,
+        "n_days": 153,
+        "rmae": 0.905
+      },
+      "stack_C3_oracle_step2": {
+        "track": "ORACLE",
+        "mae": 27.078,
+        "rmse": 41.591,
+        "smape_pct": 48.381,
+        "bias": -12.626,
+        "n_days": 153,
+        "rmae": 0.646
+      },
+      "ols_drivers_oracle": {
+        "track": "ORACLE",
+        "mae": 26.542,
+        "rmse": 39.812,
+        "smape_pct": 38.253,
+        "bias": -8.135,
+        "n_days": 153,
+        "rmae": 0.634
+      },
+      "lear_oracle": {
+        "track": "ORACLE",
+        "mae": 21.047,
+        "rmse": 32.019,
+        "smape_pct": 33.191,
+        "bias": -5.87,
+        "n_days": 153,
+        "rmae": 0.502
+      }
+    }
+  },
+  "best_exante_full": "ens_nb",
+  "best_baseline_full": "stack_C3_exante",
+  "settings": {
+    "lear": "24 LassoLarsIC(AIC), asinh-median/MAD, 364-day window, refit every test day",
+    "gbm": "HistGradientBoosting max_iter=400 lr=0.05 leaves=31 min_leaf=40 l2=1, 364-day window, refit every 7 test days",
+    "stack_C3_exante": "a+b*M0_exante refit daily on trailing 90 days",
+    "ols_drivers_rolling": "step-3 OLS refit daily on trailing 364 days (ex-ante inputs)",
+    "fuel_publication_day": 4
+  }
+}

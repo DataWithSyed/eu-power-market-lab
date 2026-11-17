@@ -1,0 +1,637 @@
+{
+  "windows": {
+    "train": "2025-01-01 to 2025-12-31 Europe/Berlin",
+    "test": "2026-01-01 to 2026-10-31 Europe/Berlin",
+    "h2_diagnosis": "2026-06-01 to 2026-10-31",
+    "n_hourly_total": 16056,
+    "n_hourly_train": 8760,
+    "n_hourly_test": 7296,
+    "n_daily_train": 365,
+    "n_daily_test": 304
+  },
+  "sources": {
+    "panel": "epm-merit-order-model processed panel + M0 (Energy-Charts / SMARD CC BY 4.0)",
+    "fuels": "World Bank Pink Sheet monthly (CC BY 4.0), already in the step-2 pipeline",
+    "eua_step2": "DEHSt H1-2026 auction VWAP 76.02 \u20ac/t carried through 2026 (step 2)",
+    "eua_quarterly": "Official DEHSt quarterly auction VWAPs (Q1 75.95, Q2 76.12, Q3 82.52; Oct carried)",
+    "daily_fuel_or_eua_futures": "Not used: no licence-clean public daily TTF / API2 / EUA futures source was included. Energy-Charts has no commodity endpoints."
+  },
+  "shapley_owen_r2": {
+    "train_2025_daily": {
+      "r2": 0.8505947514508304,
+      "shapley": {
+        "gas_eur_mwh_th": 0.03936757215996203,
+        "coal_eur_mwh_th": 0.044126993489915806,
+        "eua_quarterly_eur_t": -2.7755575615628914e-17,
+        "residual_load_mw": 0.7671001858009526
+      },
+      "shapley_sum": 0.8505947514508304,
+      "n": 365,
+      "features": [
+        "gas_eur_mwh_th",
+        "coal_eur_mwh_th",
+        "eua_quarterly_eur_t",
+        "residual_load_mw"
+      ]
+    },
+    "train_2025_hourly": {
+      "r2": 0.7701278372447861,
+      "shapley": {
+        "gas_eur_mwh_th": 0.01605117837065375,
+        "coal_eur_mwh_th": 0.018237261072797516,
+        "eua_quarterly_eur_t": 0.0,
+        "residual_load_mw": 0.7358393978013348
+      },
+      "shapley_sum": 0.7701278372447861,
+      "n": 8760,
+      "features": [
+        "gas_eur_mwh_th",
+        "coal_eur_mwh_th",
+        "eua_quarterly_eur_t",
+        "residual_load_mw"
+      ]
+    },
+    "test_2026_daily_insample": {
+      "r2": 0.80585692246849,
+      "shapley": {
+        "gas_eur_mwh_th": 0.11083634367347849,
+        "coal_eur_mwh_th": 0.09687694964722805,
+        "eua_quarterly_eur_t": 0.08211771881806544,
+        "residual_load_mw": 0.516025910329718
+      },
+      "shapley_sum": 0.80585692246849,
+      "n": 304,
+      "features": [
+        "gas_eur_mwh_th",
+        "coal_eur_mwh_th",
+        "eua_quarterly_eur_t",
+        "residual_load_mw"
+      ]
+    },
+    "full_sample_daily_insample": {
+      "r2": 0.8144967798260265,
+      "shapley": {
+        "gas_eur_mwh_th": 0.15740366491520327,
+        "coal_eur_mwh_th": 0.028023042217821197,
+        "eua_quarterly_eur_t": 0.12397325758051637,
+        "residual_load_mw": 0.5050968151124857
+      },
+      "shapley_sum": 0.8144967798260265,
+      "n": 669,
+      "features": [
+        "gas_eur_mwh_th",
+        "coal_eur_mwh_th",
+        "eua_quarterly_eur_t",
+        "residual_load_mw"
+      ]
+    }
+  },
+  "daily_models": {
+    "mean_baseline": {
+      "train": {
+        "n": 365,
+        "mae": 24.097677951610688,
+        "rmse": 33.06374433565988,
+        "bias": 1.2458831531136003e-15,
+        "corr": -1.7663085042432325e-17,
+        "r2": 0.0
+      },
+      "test": {
+        "n": 304,
+        "mae": 38.66767274955265,
+        "rmse": 51.69811514016247,
+        "bias": -24.687915491431173,
+        "corr": 2.7169376634038383e-16,
+        "r2": -0.29541130228949464
+      },
+      "mean": 89.32231195016875
+    },
+    "ols_residual_load": {
+      "features": [
+        "residual_load_mw"
+      ],
+      "coefficients": {
+        "intercept": 7.058348945973648,
+        "residual_load_mw": 0.00272414765222921
+      },
+      "train": {
+        "n": 365,
+        "mae": 9.515032403756258,
+        "rmse": 13.28968588599397,
+        "bias": 3.036840185714401e-15,
+        "corr": 0.9156654163867328,
+        "r2": 0.8384431547666884
+      },
+      "test": {
+        "n": 304,
+        "mae": 39.39371475339227,
+        "rmse": 50.87892493512323,
+        "bias": -35.47368364410026,
+        "corr": 0.5996487004295052,
+        "r2": -0.2546832935789638
+      },
+      "n_train": 365,
+      "n_test": 304
+    },
+    "ols_fuels_eua": {
+      "features": [
+        "gas_eur_mwh_th",
+        "coal_eur_mwh_th",
+        "eua_quarterly_eur_t"
+      ],
+      "coefficients": {
+        "intercept": -66.37563430435755,
+        "gas_eur_mwh_th": -0.4960681745140095,
+        "coal_eur_mwh_th": 14.386853855126416,
+        "eua_quarterly_eur_t": 0.0
+      },
+      "train": {
+        "n": 365,
+        "mae": 22.718243687593784,
+        "rmse": 31.024267674061218,
+        "bias": -1.2458831531136003e-15,
+        "corr": 0.3457767085164081,
+        "r2": 0.11956153215244081
+      },
+      "test": {
+        "n": 304,
+        "mae": 45.83206905305377,
+        "rmse": 59.33935055556166,
+        "bias": -36.96117043109087,
+        "corr": -0.2758190717186987,
+        "r2": -0.7066475462038577
+      },
+      "n_train": 365,
+      "n_test": 304
+    },
+    "ols_drivers": {
+      "features": [
+        "gas_eur_mwh_th",
+        "coal_eur_mwh_th",
+        "eua_quarterly_eur_t",
+        "residual_load_mw"
+      ],
+      "coefficients": {
+        "intercept": 50.01211092834264,
+        "gas_eur_mwh_th": 1.7109072253013973,
+        "coal_eur_mwh_th": -8.641964012090337,
+        "eua_quarterly_eur_t": 0.0,
+        "residual_load_mw": 0.0026992195909163194
+      },
+      "train": {
+        "n": 365,
+        "mae": 9.211968874395913,
+        "rmse": 12.780120871222874,
+        "bias": 1.6352216384616003e-14,
+        "corr": 0.9222769385877705,
+        "r2": 0.8505947514508304
+      },
+      "test": {
+        "n": 304,
+        "mae": 17.60367343795648,
+        "rmse": 23.861639474957013,
+        "bias": -3.482072099395039,
+        "corr": 0.8611136110726295,
+        "r2": 0.7240319388909056
+      },
+      "n_train": 365,
+      "n_test": 304
+    },
+    "ols_m0": {
+      "features": [
+        "M0_stack"
+      ],
+      "coefficients": {
+        "intercept": 0.7603332205754185,
+        "M0_stack": 0.9433604486331078
+      },
+      "train": {
+        "n": 365,
+        "mae": 9.135995958398254,
+        "rmse": 12.8778954539054,
+        "bias": -1.6196480990476804e-14,
+        "corr": 0.9210320030911675,
+        "r2": 0.8482999507181264
+      },
+      "test": {
+        "n": 304,
+        "mae": 26.485835292672185,
+        "rmse": 34.00481418198685,
+        "bias": -23.579973112544735,
+        "corr": 0.8443176915955115,
+        "r2": 0.4395471590038593
+      },
+      "n_train": 365,
+      "n_test": 304
+    },
+    "ols_m0_eua_adjusted": {
+      "features": [
+        "m0_eua_adjusted"
+      ],
+      "coefficients": {
+        "intercept": 0.7603332205754185,
+        "m0_eua_adjusted": 0.9433604486331078
+      },
+      "train": {
+        "n": 365,
+        "mae": 9.135995958398254,
+        "rmse": 12.8778954539054,
+        "bias": -1.6196480990476804e-14,
+        "corr": 0.9210320030911675,
+        "r2": 0.8482999507181264
+      },
+      "test": {
+        "n": 304,
+        "mae": 25.2807397815639,
+        "rmse": 32.46553097697861,
+        "bias": -22.361227605259145,
+        "corr": 0.857974987912287,
+        "r2": 0.4891383716055193
+      },
+      "n_train": 365,
+      "n_test": 304
+    },
+    "ols_m0_plus_gap_evening": {
+      "features": [
+        "M0_stack",
+        "eua_gap_quarterly",
+        "evening",
+        "residual_load_mw"
+      ],
+      "coefficients": {
+        "intercept": 0.4945132573932227,
+        "M0_stack": 0.5260499531238159,
+        "eua_gap_quarterly": -1.5178830414797062e-16,
+        "evening": 3.497057232047704e-07,
+        "residual_load_mw": 0.0013061310856038013
+      },
+      "train": {
+        "n": 365,
+        "mae": 8.322561075489885,
+        "rmse": 11.68772279525592,
+        "bias": -4.827797218315201e-15,
+        "corr": 0.9354380772208771,
+        "r2": 0.8750443963146889
+      },
+      "test": {
+        "n": 304,
+        "mae": 32.11392559551265,
+        "rmse": 41.13061315004787,
+        "bias": -29.24147799182117,
+        "corr": 0.7725181515359497,
+        "r2": 0.18004762056526824
+      },
+      "n_train": 365,
+      "n_test": 304
+    },
+    "hgb_drivers_m0": {
+      "features": [
+        "gas_eur_mwh_th",
+        "coal_eur_mwh_th",
+        "eua_quarterly_eur_t",
+        "residual_load_mw",
+        "M0_stack"
+      ],
+      "train": {
+        "n": 365,
+        "mae": 6.943545954954592,
+        "rmse": 10.089185182473816,
+        "bias": 8.466163296830003e-05,
+        "corr": 0.9524736023826417,
+        "r2": 0.9068874718585938
+      },
+      "test": {
+        "n": 304,
+        "mae": 34.2330589915436,
+        "rmse": 44.2104443101655,
+        "bias": -29.41172532318069,
+        "corr": 0.6881437364458652,
+        "r2": 0.05265531678908275
+      },
+      "permutation_importance_test": {
+        "gas_eur_mwh_th": {
+          "mean": 0.02263888730095464,
+          "std": 0.004332164621400313
+        },
+        "coal_eur_mwh_th": {
+          "mean": -0.0360446181895944,
+          "std": 0.004520309628057506
+        },
+        "eua_quarterly_eur_t": {
+          "mean": 0.0,
+          "std": 0.0
+        },
+        "residual_load_mw": {
+          "mean": 0.09014061557431916,
+          "std": 0.027106480091527115
+        },
+        "M0_stack": {
+          "mean": 0.39329964686429997,
+          "std": 0.04773052827759278
+        }
+      },
+      "n_train": 365,
+      "n_test": 304
+    }
+  },
+  "hourly_models": {
+    "ols_m0": {
+      "features": [
+        "M0_stack"
+      ],
+      "coefficients": {
+        "intercept": -5.800640827922791,
+        "M0_stack": 1.0132768473171565
+      },
+      "train": {
+        "n": 8760,
+        "mae": 17.243210329943455,
+        "rmse": 28.28448025036029,
+        "bias": 0.0,
+        "corr": 0.8397952412353091,
+        "r2": 0.7052560472014713
+      },
+      "test": {
+        "n": 7296,
+        "mae": 29.540461968386463,
+        "rmse": 44.67812589613539,
+        "bias": -23.498006373913974,
+        "corr": 0.8399725237017741,
+        "r2": 0.5929216120719235
+      },
+      "n_train": 8760,
+      "n_test": 7296
+    },
+    "ols_m0_eua_adjusted": {
+      "features": [
+        "m0_eua_adjusted"
+      ],
+      "coefficients": {
+        "intercept": -5.800640827922791,
+        "m0_eua_adjusted": 1.0132768473171565
+      },
+      "train": {
+        "n": 8760,
+        "mae": 17.243210329943455,
+        "rmse": 28.28448025036029,
+        "bias": 0.0,
+        "corr": 0.8397952412353091,
+        "r2": 0.7052560472014713
+      },
+      "test": {
+        "n": 7296,
+        "mae": 28.40152799005029,
+        "rmse": 43.459567396874334,
+        "bias": -22.18892827446194,
+        "corr": 0.8457540637926058,
+        "r2": 0.6148242394218668
+      },
+      "n_train": 8760,
+      "n_test": 7296
+    },
+    "ols_drivers": {
+      "features": [
+        "gas_eur_mwh_th",
+        "coal_eur_mwh_th",
+        "eua_quarterly_eur_t",
+        "residual_load_mw"
+      ],
+      "coefficients": {
+        "intercept": 68.53326572487197,
+        "gas_eur_mwh_th": 2.0621825027504737,
+        "coal_eur_mwh_th": -12.306754283278735,
+        "eua_quarterly_eur_t": 0.0,
+        "residual_load_mw": 0.0031287942739771607
+      },
+      "train": {
+        "n": 8760,
+        "mae": 17.08567455647327,
+        "rmse": 24.978648798606596,
+        "bias": 1.7909570326008004e-14,
+        "corr": 0.8775692777466556,
+        "r2": 0.7701278372447861
+      },
+      "test": {
+        "n": 7296,
+        "mae": 23.94099122798174,
+        "rmse": 36.061158443787285,
+        "bias": 1.8555790281463742,
+        "corr": 0.8608192946061068,
+        "r2": 0.7348036765074595
+      },
+      "n_train": 8760,
+      "n_test": 7296
+    },
+    "ols_m0_plus_gap_evening": {
+      "features": [
+        "M0_stack",
+        "eua_gap_quarterly",
+        "evening",
+        "residual_load_mw"
+      ],
+      "coefficients": {
+        "intercept": -10.406150061914872,
+        "M0_stack": 0.39821928283271213,
+        "eua_gap_quarterly": -2.6324602220295645e-13,
+        "evening": 14.063795179700643,
+        "residual_load_mw": 0.0020063693012794723
+      },
+      "train": {
+        "n": 8760,
+        "mae": 14.936151404145592,
+        "rmse": 23.607912747251532,
+        "bias": 7.475298918681601e-15,
+        "corr": 0.8914396613186624,
+        "r2": 0.7946646697719324
+      },
+      "test": {
+        "n": 7296,
+        "mae": 37.62748148099127,
+        "rmse": 51.6317352798484,
+        "bias": -32.16352254783141,
+        "corr": 0.8170718152852441,
+        "r2": 0.4563472444046105
+      },
+      "n_train": 8760,
+      "n_test": 7296
+    },
+    "hgb_drivers_m0": {
+      "features": [
+        "gas_eur_mwh_th",
+        "coal_eur_mwh_th",
+        "eua_quarterly_eur_t",
+        "residual_load_mw",
+        "M0_stack",
+        "hour",
+        "evening",
+        "utilisation"
+      ],
+      "train": {
+        "n": 8760,
+        "mae": 11.56039900707365,
+        "rmse": 18.134688428434576,
+        "bias": 1.9290507984276527e-05,
+        "corr": 0.9375904010525645,
+        "r2": 0.8788373690856209
+      },
+      "test": {
+        "n": 7296,
+        "mae": 40.635910092864584,
+        "rmse": 56.8391410919443,
+        "bias": -22.09061240219791,
+        "corr": 0.7220316513703029,
+        "r2": 0.3411551370838144
+      },
+      "permutation_importance_test": {
+        "gas_eur_mwh_th": {
+          "mean": -0.0022387188492248022,
+          "std": 0.0008239387662444751
+        },
+        "coal_eur_mwh_th": {
+          "mean": -0.15259352220107608,
+          "std": 0.0036636921507289936
+        },
+        "eua_quarterly_eur_t": {
+          "mean": 0.0,
+          "std": 0.0
+        },
+        "residual_load_mw": {
+          "mean": 0.6445615292473309,
+          "std": 0.008447358036164726
+        },
+        "M0_stack": {
+          "mean": 0.07537825037065948,
+          "std": 0.004547214847925329
+        },
+        "hour": {
+          "mean": -0.0023324375564104994,
+          "std": 0.0011379265082001302
+        },
+        "evening": {
+          "mean": 0.002580402193316733,
+          "std": 0.0005298489199485231
+        },
+        "utilisation": {
+          "mean": 0.001879674928908537,
+          "std": 0.0003532162269930624
+        }
+      },
+      "n_train": 8760,
+      "n_test": 7296
+    },
+    "m0_uncalibrated": {
+      "train": {
+        "n": 8760,
+        "mae": 17.65282100456621,
+        "rmse": 28.654524767194967,
+        "bias": 4.5542636986301375,
+        "corr": 0.8397952412353097,
+        "r2": 0.6974933553731192
+      },
+      "test": {
+        "n": 7296,
+        "mae": 27.056989035087717,
+        "rmse": 42.46700366354171,
+        "bias": -18.95924150219298,
+        "corr": 0.8399725237017734,
+        "r2": 0.6322172209216106
+      }
+    },
+    "m0_eua_adjusted_uncalibrated": {
+      "train": {
+        "n": 8760,
+        "mae": 17.65282100456621,
+        "rmse": 28.654524767194967,
+        "bias": 4.5542636986301375,
+        "corr": 0.8397952412353097,
+        "r2": 0.6974933553731192
+      },
+      "test": {
+        "n": 7296,
+        "mae": 25.976269358837527,
+        "rmse": 41.330607372291084,
+        "bias": -17.667316099063452,
+        "corr": 0.8457540637926066,
+        "r2": 0.6516372374933657
+      }
+    }
+  },
+  "h2_2026_underpricing": {
+    "window": "2026-06-01 to 2026-10-31 (in-sample diagnosis, not a test score)",
+    "n_hours": 3673,
+    "da_mean": 131.2517642254288,
+    "m0_mean": 95.9980533623741,
+    "m0_adj_mean": 98.56849476972562,
+    "m0_bias": -35.25371086305472,
+    "m0_adj_bias": -32.68326945570319,
+    "m0_mae": 37.91650639803975,
+    "m0_adj_mae": 35.78343395709618,
+    "bias_closed_eur": 2.570441407351531,
+    "eua_step2_mean": 76.02,
+    "eua_quarterly_mean": 81.26543969507216,
+    "gas_eur_mwh_th_mean": 64.70406529906694,
+    "residual_load_mean": 22836.571127144023,
+    "utilisation_mean": 0.29404682820582634,
+    "h1_2026": {
+      "n_hours": 3623,
+      "da_mean": 96.51535412641458,
+      "m0_bias": -2.4398967706320724,
+      "residual_load_mean": 29682.384446591223,
+      "utilisation_mean": 0.4037137731162021,
+      "gas_eur_mwh_th_mean": 42.51181904788867,
+      "eua_quarterly_mean": 76.01869445211152
+    },
+    "residual_load_slope_eur_per_gw": {
+      "train_2025": 3.1154271215346787,
+      "h1_2026_insample": 2.913100745509163,
+      "h2_2026_insample": 4.22688789357061
+    },
+    "h1_insample_ols_coefficients": {
+      "intercept": -6031.592662223352,
+      "residual_load_mw": 0.0031895949702020433,
+      "gas_eur_mwh_th": 1.073331363548677,
+      "eua_quarterly_eur_t": 78.76751905127452
+    },
+    "h2_insample_ols_coefficients": {
+      "intercept": -93.28285712270682,
+      "residual_load_mw": 0.004132090421114076,
+      "gas_eur_mwh_th": 0.9527067267155984,
+      "eua_quarterly_eur_t": 0.8432594045321156
+    },
+    "marginal_tech_shares": {
+      "train_2025": {
+        "gas_ccgt": 0.41073059360730596,
+        "lignite": 0.21780821917808219,
+        "hard_coal": 0.20125570776255708,
+        "gas_peaker": 0.08356164383561644,
+        "surplus": 0.07226027397260273,
+        "oil": 0.014383561643835616
+      },
+      "h1_2026": {
+        "gas_ccgt": 0.38145183549544576,
+        "hard_coal": 0.2094948937344742,
+        "lignite": 0.18713773116202043,
+        "surplus": 0.11785812862268838,
+        "gas_peaker": 0.09936516698868342,
+        "oil": 0.004692243996687827
+      },
+      "h2_2026": {
+        "gas_ccgt": 0.3473999455485979,
+        "lignite": 0.20419275796351757,
+        "hard_coal": 0.20392050095289954,
+        "surplus": 0.2036482439422815,
+        "gas_peaker": 0.03811598148652328,
+        "oil": 0.002722570106180234
+      }
+    },
+    "note_h1_multivariate_eua": "H1 2026 EUA barely moves (75.95 vs 76.12); the multivariate EUA coefficient is not identified and is not a result.",
+    "bias_closed_share": 0.0729126479007153
+  },
+  "paper_trading_or_orders": false,
+  "notes": [
+    "Shapley-Owen values are in-sample on 2025 and sum to the OLS R\u00b2 of the four drivers.",
+    "Hourly fuels and EUA are stepwise monthly/quarterly, so hourly R\u00b2 is dominated by residual load.",
+    "The M0 EUA adjustment is a first-order SRMC correction (ASSUMED mid-band efficiencies), not a re-cleared stack.",
+    "H2 residual-load slopes are diagnostic in-sample fits, not out-of-sample claims."
+  ]
+}

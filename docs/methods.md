@@ -36,5 +36,6 @@ Every DOI below was resolved against the [Crossref API](https://api.crossref.org
 | 4 Adequacy | (8), (9) |
 | 5 Forecasts | (3), (4), (5), (6) |
 | 6 BESS value | (8) + scenario outputs of 2–5 |
+| 7 Report | all of the above; consolidated list in [`report/README.md`](../report/README.md#7-references) |
 
 Crossref verification command used: `GET https://api.crossref.org/works/{doi}` → HTTP 200 with matching title.

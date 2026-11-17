@@ -1,0 +1,137 @@
+{
+  "window": [
+    "2025-01-01 00:00:00+01:00",
+    "2026-10-31 23:00:00+01:00"
+  ],
+  "hours": 16056,
+  "periods": {
+    "2025": {
+      "hours": 8760,
+      "rl_mean_mw": 30197.167562785387,
+      "rl_p99_mw": 62609.680499999995,
+      "rl_max_mw": 68313.1,
+      "load_mean_mw": 53175.53341894977,
+      "price_mean": 89.32172203196347,
+      "price_top_rl_hours": 234.54078,
+      "rl_top_price_hours_mw": 58547.31775,
+      "top_overlap_share": 0.39,
+      "spearman_rl_price": 0.9121484392827005,
+      "net_import_mean_mw": 2502.6135159817354,
+      "net_import_in_top_rl_mw": 11306.253500000003,
+      "margin_mean_mw": 45985.93243721462,
+      "margin_min_mw": 7870.0,
+      "margin_p01_mw": 13573.419500000005,
+      "available_derated_mw": 76183.1,
+      "available_demonstrated_mw": 54101.05525,
+      "hours_demo_margin_lt0": 426,
+      "m0_bias": 4.5542636986301375,
+      "thermal_out_mean_mw": 16682.604252283105,
+      "thermal_out_q995_mw": 35756.292375
+    },
+    "2026-H1": {
+      "hours": 3623,
+      "rl_mean_mw": 29682.384446591223,
+      "rl_p99_mw": 58849.05849999996,
+      "rl_max_mw": 64304.675,
+      "load_mean_mw": 55244.89938586806,
+      "price_mean": 96.51535412641458,
+      "price_top_rl_hours": 182.33020999999997,
+      "rl_top_price_hours_mw": 54493.98875,
+      "top_overlap_share": 0.45,
+      "spearman_rl_price": 0.8395814533514143,
+      "net_import_mean_mw": -225.51826524979313,
+      "net_import_in_top_rl_mw": 7206.612750000001,
+      "margin_mean_mw": 47426.265553408775,
+      "margin_min_mw": 12803.974999999991,
+      "margin_p01_mw": 18259.591499999995,
+      "available_derated_mw": 77108.65,
+      "available_demonstrated_mw": 53764.66624999998,
+      "hours_demo_margin_lt0": 169,
+      "m0_bias": -2.4398967706320724,
+      "thermal_out_mean_mw": 19578.10896356611,
+      "thermal_out_q995_mw": 35842.55499999999
+    },
+    "2026-H2": {
+      "hours": 3673,
+      "rl_mean_mw": 22836.571127144023,
+      "rl_p99_mw": 52610.549999999974,
+      "rl_max_mw": 60091.8,
+      "load_mean_mw": 50433.326027770214,
+      "price_mean": 131.2517642254288,
+      "price_top_rl_hours": 326.90328,
+      "rl_top_price_hours_mw": 50596.649000000005,
+      "top_overlap_share": 0.67,
+      "spearman_rl_price": 0.8770678069455978,
+      "net_import_mean_mw": 78.86670296760146,
+      "net_import_in_top_rl_mw": 10166.8915,
+      "margin_mean_mw": 54272.07887285597,
+      "margin_min_mw": 17016.84999999999,
+      "margin_p01_mw": 24498.099999999995,
+      "available_derated_mw": 77108.65,
+      "available_demonstrated_mw": 47050.13399999999,
+      "hours_demo_margin_lt0": 169,
+      "m0_bias": -35.25371086305472,
+      "thermal_out_mean_mw": 14967.292247481622,
+      "thermal_out_q995_mw": 29990.101999999988
+    }
+  },
+  "lole_main": {
+    "0.0": {
+      "2025": 5e-05,
+      "2026-H1": 0.0,
+      "2026-H2": 0.0
+    },
+    "5000.0": {
+      "2025": 0.0,
+      "2026-H1": 0.0,
+      "2026-H2": 0.0
+    },
+    "10000.0": {
+      "2025": 0.0,
+      "2026-H1": 0.0,
+      "2026-H2": 0.0
+    }
+  },
+  "h2_link": {
+    "hours": 7296,
+    "h2_gap_no_margin": 32.81708581363428,
+    "h2_gap_with_margin": 33.44753246692242,
+    "h2_gap_with_margin_ci95": [
+      29.07941418229949,
+      37.88816886154582
+    ],
+    "margin_slope_eur_per_gw": -0.09209005310592121,
+    "margin_slope_ci95": [
+      -0.2516779841058575,
+      0.05318000511558075
+    ],
+    "share_of_gap_explained_by_margin": -0.019210927407399936,
+    "h1_median_margin_mw": 44897.274999999994,
+    "h2_hours_looser_than_h1_median": 2434,
+    "h2_bias_in_those_hours": -35.95289852095316,
+    "spearman_month_min_margin_vs_m0_bias": -0.36194240542066636,
+    "spearman_month_mean_margin_vs_m0_bias": -0.5765104460756635,
+    "jun_oct_matched": {
+      "2025": {
+        "hours": 3673,
+        "da_mean": 79.41162265178329,
+        "rl_mean_mw": 25619.983814320723,
+        "margin_mean_mw": 50563.11618567929,
+        "margin_p01_mw": 22855.823000000004,
+        "hours_margin_lt_30gw": 198,
+        "m0_bias": -0.2771791451129866,
+        "net_import_mean_mw": 2609.4020963789812
+      },
+      "2026": {
+        "hours": 3673,
+        "da_mean": 131.2517642254288,
+        "rl_mean_mw": 22836.571127144023,
+        "margin_mean_mw": 54272.07887285597,
+        "margin_p01_mw": 24498.099999999995,
+        "hours_margin_lt_30gw": 167,
+        "m0_bias": -35.25371086305472,
+        "net_import_mean_mw": 78.86670296760146
+      }
+    }
+  }
+}

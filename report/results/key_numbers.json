@@ -1,0 +1,408 @@
+{
+  "s1_hours": {
+    "value": 1824.0,
+    "decimals": 0,
+    "unit": "h",
+    "source": "epm-data-pipeline/summary.json",
+    "path": "measured_facts.n_hourly_rows"
+  },
+  "s1_da_mean": {
+    "value": 140.48,
+    "decimals": 2,
+    "unit": "€/MWh",
+    "source": "epm-data-pipeline/summary.json",
+    "path": "measured_facts.da_price_mean_eur_mwh"
+  },
+  "s1_neg_share_pct": {
+    "value": 5.15,
+    "decimals": 2,
+    "unit": "%",
+    "source": "epm-data-pipeline/summary.json",
+    "path": "measured_facts.negative_price_hour_share_pct"
+  },
+  "s1_gas_sep_eur_mwh_th": {
+    "value": 75.34,
+    "decimals": 2,
+    "unit": "€/MWh_th",
+    "source": "epm-data-pipeline/summary.json",
+    "path": "measured_facts.last_gas_eur_mwh_th"
+  },
+  "s1_eua_proxy": {
+    "value": 76.02,
+    "decimals": 2,
+    "unit": "€/t",
+    "source": "epm-data-pipeline/summary.json",
+    "path": "measured_facts.last_eua_eur_t"
+  },
+  "s2_m0_mae": {
+    "value": 27.06,
+    "decimals": 2,
+    "unit": "€/MWh",
+    "source": "epm-merit-order-model/summary.json",
+    "path": "metrics.M0_stack.test.mae"
+  },
+  "s2_m0_bias": {
+    "value": -18.96,
+    "decimals": 2,
+    "unit": "€/MWh",
+    "source": "epm-merit-order-model/summary.json",
+    "path": "metrics.M0_stack.test.bias"
+  },
+  "s2_m0_corr": {
+    "value": 0.84,
+    "decimals": 2,
+    "unit": "",
+    "source": "epm-merit-order-model/summary.json",
+    "path": "metrics.M0_stack.test.corr"
+  },
+  "s2_c3_mae": {
+    "value": 22.07,
+    "decimals": 2,
+    "unit": "€/MWh",
+    "source": "epm-merit-order-model/summary.json",
+    "path": "metrics.C3_rolling90_linear.test.mae"
+  },
+  "s2_c3_bias": {
+    "value": -7.65,
+    "decimals": 2,
+    "unit": "€/MWh",
+    "source": "epm-merit-order-model/summary.json",
+    "path": "metrics.C3_rolling90_linear.test.bias"
+  },
+  "s2_c2_mae": {
+    "value": 29.12,
+    "decimals": 2,
+    "unit": "€/MWh",
+    "source": "epm-merit-order-model/summary.json",
+    "path": "metrics.C2_structural_2025.test.mae"
+  },
+  "s2_b2_mae": {
+    "value": 38.61,
+    "decimals": 2,
+    "unit": "€/MWh",
+    "source": "epm-merit-order-model/summary.json",
+    "path": "metrics.B2_ols_resload_srmc.test.mae"
+  },
+  "s2_neg_model": {
+    "value": 1526.0,
+    "decimals": 0,
+    "unit": "h",
+    "source": "epm-merit-order-model/summary.json",
+    "path": "metrics.M0_stack.test_negative_hours.model_count"
+  },
+  "s2_neg_real": {
+    "value": 497.0,
+    "decimals": 0,
+    "unit": "h",
+    "source": "epm-merit-order-model/summary.json",
+    "path": "metrics.M0_stack.test_negative_hours.realised_count"
+  },
+  "s3_h2_m0_bias": {
+    "value": -35.25,
+    "decimals": 2,
+    "unit": "€/MWh",
+    "source": "epm-co2-gas-price-drivers/summary.json",
+    "path": "h2_2026_underpricing.m0_bias"
+  },
+  "s3_h2_m0_adj_bias": {
+    "value": -32.68,
+    "decimals": 2,
+    "unit": "€/MWh",
+    "source": "epm-co2-gas-price-drivers/summary.json",
+    "path": "h2_2026_underpricing.m0_adj_bias"
+  },
+  "s3_bias_closed": {
+    "value": 2.57,
+    "decimals": 2,
+    "unit": "€/MWh",
+    "source": "epm-co2-gas-price-drivers/summary.json",
+    "path": "h2_2026_underpricing.bias_closed_eur"
+  },
+  "s3_bias_closed_pct": {
+    "value": 7.3,
+    "decimals": 1,
+    "unit": "%",
+    "source": "epm-co2-gas-price-drivers/summary.json",
+    "path": "h2_2026_underpricing.bias_closed_share"
+  },
+  "s3_h1_da_mean": {
+    "value": 96.5,
+    "decimals": 1,
+    "unit": "€/MWh",
+    "source": "epm-co2-gas-price-drivers/summary.json",
+    "path": "h2_2026_underpricing.h1_2026.da_mean"
+  },
+  "s3_h2_da_mean": {
+    "value": 131.3,
+    "decimals": 1,
+    "unit": "€/MWh",
+    "source": "epm-co2-gas-price-drivers/summary.json",
+    "path": "h2_2026_underpricing.da_mean"
+  },
+  "s3_h1_rl_gw": {
+    "value": 29.7,
+    "decimals": 1,
+    "unit": "GW",
+    "source": "epm-co2-gas-price-drivers/summary.json",
+    "path": "h2_2026_underpricing.h1_2026.residual_load_mean"
+  },
+  "s3_h2_rl_gw": {
+    "value": 22.8,
+    "decimals": 1,
+    "unit": "GW",
+    "source": "epm-co2-gas-price-drivers/summary.json",
+    "path": "h2_2026_underpricing.residual_load_mean"
+  },
+  "s3_h2_surplus_share_pct": {
+    "value": 20.4,
+    "decimals": 1,
+    "unit": "%",
+    "source": "epm-co2-gas-price-drivers/summary.json",
+    "path": "h2_2026_underpricing.marginal_tech_shares.h2_2026.surplus"
+  },
+  "s3_2025_surplus_share_pct": {
+    "value": 7.2,
+    "decimals": 1,
+    "unit": "%",
+    "source": "epm-co2-gas-price-drivers/summary.json",
+    "path": "h2_2026_underpricing.marginal_tech_shares.train_2025.surplus"
+  },
+  "s3_rl_slope_h1": {
+    "value": 2.91,
+    "decimals": 2,
+    "unit": "€/MWh per GW",
+    "source": "epm-co2-gas-price-drivers/summary.json",
+    "path": "h2_2026_underpricing.residual_load_slope_eur_per_gw.h1_2026_insample"
+  },
+  "s3_rl_slope_h2": {
+    "value": 4.23,
+    "decimals": 2,
+    "unit": "€/MWh per GW",
+    "source": "epm-co2-gas-price-drivers/summary.json",
+    "path": "h2_2026_underpricing.residual_load_slope_eur_per_gw.h2_2026_insample"
+  },
+  "s4_h2_gap_no_margin": {
+    "value": 32.8,
+    "decimals": 1,
+    "unit": "€/MWh",
+    "source": "epm-capacity-adequacy/summary.json",
+    "path": "h2_link.h2_gap_no_margin"
+  },
+  "s4_h2_gap_with_margin": {
+    "value": 33.4,
+    "decimals": 1,
+    "unit": "€/MWh",
+    "source": "epm-capacity-adequacy/summary.json",
+    "path": "h2_link.h2_gap_with_margin"
+  },
+  "s4_h2_margin_mean_gw": {
+    "value": 54.3,
+    "decimals": 1,
+    "unit": "GW",
+    "source": "epm-capacity-adequacy/summary.json",
+    "path": "periods.2026-H2.margin_mean_mw"
+  },
+  "s4_2025_margin_mean_gw": {
+    "value": 46.0,
+    "decimals": 1,
+    "unit": "GW",
+    "source": "epm-capacity-adequacy/summary.json",
+    "path": "periods.2025.margin_mean_mw"
+  },
+  "s4_h2_top_rl_price": {
+    "value": 326.9,
+    "decimals": 1,
+    "unit": "€/MWh",
+    "source": "epm-capacity-adequacy/summary.json",
+    "path": "periods.2026-H2.price_top_rl_hours"
+  },
+  "s4_2025_top_rl_price": {
+    "value": 234.5,
+    "decimals": 1,
+    "unit": "€/MWh",
+    "source": "epm-capacity-adequacy/summary.json",
+    "path": "periods.2025.price_top_rl_hours"
+  },
+  "s4_junoct25_bias": {
+    "value": -0.3,
+    "decimals": 1,
+    "unit": "€/MWh",
+    "source": "epm-capacity-adequacy/summary.json",
+    "path": "h2_link.jun_oct_matched.2025.m0_bias"
+  },
+  "s4_junoct25_import_gw": {
+    "value": 2.6,
+    "decimals": 1,
+    "unit": "GW",
+    "source": "epm-capacity-adequacy/summary.json",
+    "path": "h2_link.jun_oct_matched.2025.net_import_mean_mw"
+  },
+  "s4_junoct26_import_gw": {
+    "value": 0.08,
+    "decimals": 2,
+    "unit": "GW",
+    "source": "epm-capacity-adequacy/summary.json",
+    "path": "h2_link.jun_oct_matched.2026.net_import_mean_mw"
+  },
+  "s5_ensnb_mae": {
+    "value": 14.25,
+    "decimals": 2,
+    "unit": "€/MWh",
+    "source": "epm-price-forecast-benchmark/summary.json",
+    "path": "metrics.test_2026_01_10.ens_nb.mae"
+  },
+  "s5_ensnb_mae_h1": {
+    "value": 12.14,
+    "decimals": 2,
+    "unit": "€/MWh",
+    "source": "epm-price-forecast-benchmark/summary.json",
+    "path": "metrics.H1_2026_01_05.ens_nb.mae"
+  },
+  "s5_ensnb_mae_h2": {
+    "value": 16.33,
+    "decimals": 2,
+    "unit": "€/MWh",
+    "source": "epm-price-forecast-benchmark/summary.json",
+    "path": "metrics.H2_2026_06_10.ens_nb.mae"
+  },
+  "s5_c3_mae": {
+    "value": 22.67,
+    "decimals": 2,
+    "unit": "€/MWh",
+    "source": "epm-price-forecast-benchmark/summary.json",
+    "path": "metrics.test_2026_01_10.stack_C3_exante.mae"
+  },
+  "s5_m0_mae": {
+    "value": 30.42,
+    "decimals": 2,
+    "unit": "€/MWh",
+    "source": "epm-price-forecast-benchmark/summary.json",
+    "path": "metrics.test_2026_01_10.stack_M0_exante.mae"
+  },
+  "s5_m0_bias_h2": {
+    "value": -37.8,
+    "decimals": 1,
+    "unit": "€/MWh",
+    "source": "epm-price-forecast-benchmark/summary.json",
+    "path": "metrics.H2_2026_06_10.stack_M0_exante.bias"
+  },
+  "s5_naive_mae": {
+    "value": 32.78,
+    "decimals": 2,
+    "unit": "€/MWh",
+    "source": "epm-price-forecast-benchmark/summary.json",
+    "path": "metrics.test_2026_01_10.naive_d1.mae"
+  },
+  "s5_ols_static_mae_h2": {
+    "value": 95.3,
+    "decimals": 1,
+    "unit": "€/MWh",
+    "source": "epm-price-forecast-benchmark/summary.json",
+    "path": "metrics.H2_2026_06_10.ols_drivers_exante.mae"
+  },
+  "s5_ols_rolling_mae": {
+    "value": 23.63,
+    "decimals": 2,
+    "unit": "€/MWh",
+    "source": "epm-price-forecast-benchmark/summary.json",
+    "path": "metrics.test_2026_01_10.ols_drivers_rolling.mae"
+  },
+  "s6_pf_2h": {
+    "value": 78937.0,
+    "decimals": 0,
+    "unit": "€/MW",
+    "source": "epm-bess-value-from-scenarios/value_by_scenario.csv",
+    "path": "duration_h=2,signal=actual,period=full:pf_eur_per_mw"
+  },
+  "s6_pf_2h_day_h1": {
+    "value": 212.0,
+    "decimals": 0,
+    "unit": "€/MW/day",
+    "source": "epm-bess-value-from-scenarios/summary.json",
+    "path": "pf_value_concentration_2h.H1.mean_eur_day"
+  },
+  "s6_pf_2h_day_h2": {
+    "value": 306.0,
+    "decimals": 0,
+    "unit": "€/MW/day",
+    "source": "epm-bess-value-from-scenarios/summary.json",
+    "path": "pf_value_concentration_2h.H2.mean_eur_day"
+  },
+  "s6_ret_ensnb": {
+    "value": 98.0,
+    "decimals": 1,
+    "unit": "%",
+    "source": "epm-bess-value-from-scenarios/value_by_scenario.csv",
+    "path": "duration_h=2,signal=ens_nb,period=full:retained_pct"
+  },
+  "s6_ret_naive": {
+    "value": 90.5,
+    "decimals": 1,
+    "unit": "%",
+    "source": "epm-bess-value-from-scenarios/value_by_scenario.csv",
+    "path": "duration_h=2,signal=naive_d1,period=full:retained_pct"
+  },
+  "s6_ret_c3": {
+    "value": 86.9,
+    "decimals": 1,
+    "unit": "%",
+    "source": "epm-bess-value-from-scenarios/value_by_scenario.csv",
+    "path": "duration_h=2,signal=stack_C3_exante,period=full:retained_pct"
+  },
+  "s6_ret_m0": {
+    "value": 83.6,
+    "decimals": 1,
+    "unit": "%",
+    "source": "epm-bess-value-from-scenarios/value_by_scenario.csv",
+    "path": "duration_h=2,signal=stack_M0_exante,period=full:retained_pct"
+  },
+  "s6_ret_ols_rolling": {
+    "value": 97.7,
+    "decimals": 1,
+    "unit": "%",
+    "source": "epm-bess-value-from-scenarios/value_by_scenario.csv",
+    "path": "duration_h=2,signal=ols_drivers_rolling,period=full:retained_pct"
+  },
+  "s6_c3_minus_naive": {
+    "value": -9.5,
+    "decimals": 1,
+    "unit": "€/MW/day",
+    "source": "epm-bess-value-from-scenarios/bootstrap_differences_2h.csv",
+    "path": "a=stack_C3_exante,b=naive_d1,period=full:mean_eur_day"
+  },
+  "s6_c3_minus_naive_lo": {
+    "value": -19.9,
+    "decimals": 1,
+    "unit": "€/MW/day",
+    "source": "epm-bess-value-from-scenarios/bootstrap_differences_2h.csv",
+    "path": "a=stack_C3_exante,b=naive_d1,period=full:lo90"
+  },
+  "s6_c3_minus_naive_hi": {
+    "value": -1.5,
+    "decimals": 1,
+    "unit": "€/MW/day",
+    "source": "epm-bess-value-from-scenarios/bootstrap_differences_2h.csv",
+    "path": "a=stack_C3_exante,b=naive_d1,period=full:hi90"
+  },
+  "s6_ensnb_minus_c3": {
+    "value": 29.0,
+    "decimals": 1,
+    "unit": "€/MW/day",
+    "source": "epm-bess-value-from-scenarios/bootstrap_differences_2h.csv",
+    "path": "a=ens_nb,b=stack_C3_exante,period=full:mean_eur_day"
+  },
+  "s6_spearman_mae": {
+    "value": -0.73,
+    "decimals": 2,
+    "unit": "",
+    "source": "epm-bess-value-from-scenarios/summary.json",
+    "path": "retained_vs_accuracy_spearman.2h.spearman_retained_vs_mae"
+  },
+  "s6_spearman_rank": {
+    "value": 0.8,
+    "decimals": 2,
+    "unit": "",
+    "source": "epm-bess-value-from-scenarios/summary.json",
+    "path": "retained_vs_accuracy_spearman.2h.spearman_retained_vs_rankcorr"
+  }
+}
